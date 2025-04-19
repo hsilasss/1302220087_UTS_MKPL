@@ -109,4 +109,10 @@ public class Employee {
 		
 		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
 	}
+
+private static final int SALARY_GRADE_1 = 3000000;
+private static final int SALARY_GRADE_2 = 5000000;
+private static final int SALARY_GRADE_3 = 7000000;
+private static final double FOREIGNER_MULTIPLIER = 1.5;
+private static final int FULL_YEAR_MONTH = 12;
 }
