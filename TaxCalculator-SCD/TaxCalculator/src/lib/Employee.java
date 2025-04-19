@@ -7,6 +7,12 @@ import java.util.List;
 
 public class Employee {
 
+	private static final int salary_grade1 = 3000000;
+	private static final int salary_grade2 = 5000000;
+	private static final int salary_grade3 = 7000000;
+	private static final double multiplier = 1.5;
+	private static final int fullYear_month = 12;
+
 	private String employeeId;
 	private String firstName;
 	private String lastName;
@@ -65,14 +71,14 @@ public class Employee {
 	 public void setMonthlySalary(int grade) {
 		int baseSalary;
 		switch (grade) {
-			case 1: baseSalary = 3000000; break;
-			case 2: baseSalary = 5000000; break;
-			case 3: baseSalary = 7000000; break;
+			case 1: baseSalary = salary_grade1; break;
+			case 2: baseSalary = salary_grade2; break;
+			case 3: baseSalary = salary_grade3; break;
 			default: baseSalary = 0; break;
 		}
 	
 		if (isForeigner) {
-			baseSalary *= 1.5;
+			baseSalary *= multiplier;
 		}
 	
 		this.monthlySalary = baseSalary;
@@ -104,15 +110,11 @@ public class Employee {
 		if (date.getYear() == yearJoined) {
 			monthWorkingInYear = date.getMonthValue() - monthJoined;
 		}else {
-			monthWorkingInYear = 12;
+			monthWorkingInYear = fullYear_month;
 		}
 		
 		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
 	}
 
-private static final int SALARY_GRADE_1 = 3000000;
-private static final int SALARY_GRADE_2 = 5000000;
-private static final int SALARY_GRADE_3 = 7000000;
-private static final double FOREIGNER_MULTIPLIER = 1.5;
-private static final int FULL_YEAR_MONTH = 12;
+
 }
